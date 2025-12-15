@@ -24,28 +24,72 @@
 
 <section class="menu-grid">
     <div class="menu-item">
-        <img src="cheese pizza.webp" alt="Cheese Pizza">
+        <a href="cheese pizza.webp" class="lightbox">
+            <img src="cheese pizza.webp" alt="Cheese Pizza">
+        </a>
         <h3>Cheese Pizza</h3>
     </div>
 
     <div class="menu-item">
-        <img src="cheesy-chicken-pasta-1-15.jpg" alt="Cheesy Pasta">
+        <a href="cheesy-chicken-pasta-1-15.jpg" class="lightbox">
+            <img src="cheesy-chicken-pasta-1-15.jpg" alt="Cheesy Pasta">
+        </a>
         <h3>Cheesy Pasta</h3>
     </div>
 
     <div class="menu-item">
-        <img src="cheese burger.jpeg" alt="Cheese Burger">
+        <a href="cheese burger.jpeg" class="lightbox">
+            <img src="cheese burger.jpeg" alt="Cheese Burger">
+        </a>
         <h3>Cheese Burger</h3>
     </div>
 
     <div class="menu-item">
-        <img src="cheese Fries.jpeg" alt="Cheese Fries">
+        <a href="cheese Fries.jpeg" class="lightbox">
+            <img src="cheese Fries.jpeg" alt="Cheese Fries">
+        </a>
         <h3>Cheese Fries</h3>
     </div>
 </section>
 
+<!-- Lightbox JS -->
+<script>
+document.querySelectorAll('.lightbox').forEach(link => {
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+
+        // Create overlay
+        let overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.background = 'rgba(0,0,0,0.8)';
+        overlay.style.display = 'flex';
+        overlay.style.alignItems = 'center';
+        overlay.style.justifyContent = 'center';
+        overlay.style.zIndex = '1000';
+
+        // Create image
+        let img = document.createElement('img');
+        img.src = this.href;
+        img.style.maxWidth = '90%';
+        img.style.maxHeight = '90%';
+        img.style.borderRadius = '10px';
+        overlay.appendChild(img);
+
+        // Remove overlay on click
+        overlay.addEventListener('click', () => overlay.remove());
+
+        document.body.appendChild(overlay);
+    });
+});
+</script>
+
+
 <footer>
-    <p>© 2025 Yay Cheese Restaurant | All Rights Reserved</p>
+    <p>© 2025 Yay Cheese Restaurant | tel:0332-5366197 | yaycheese09@gmail.com | All Rights Reserved</p>
 </footer>
 
 </body>
